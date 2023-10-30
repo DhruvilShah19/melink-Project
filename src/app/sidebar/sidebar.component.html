@@ -1,0 +1,29 @@
+<div class="container-fluid m-0 p-0">
+  <div class="row m-0 p-0">
+    <!-- Sidebar -->
+    <div class="col-md-3 bg-dark p-3" style="height: 100vh;">
+      <ul class="list-group bg-transparent">
+
+        <!-- Home Route Link -->
+        <li class="list-group-item bg-transparent" [ngClass]="{'active': currentRoute === '/' }">
+          <a routerLink="/" class="text-decoration-none text-white">Home</a>
+        </li>
+
+        <!-- API Interface Route Link -->
+        <li class="list-group-item bg-transparent" [ngClass]="{'active': currentRoute === '/api-interface' }">
+          <a routerLink="/api-interface" class="text-decoration-none text-white" >API Interface</a>
+        </li>
+        
+        <!-- Typing Challenge Route Link -->
+        <li class="list-group-item bg-transparent" [ngClass]="{'active': currentRoute === '/typing-challenge' }">
+          <a routerLink="/typing-challenge" class="text-decoration-none text-white">Typing Challenge</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="col-md-9 main-content" style="height: 100vh; overflow-y: auto;">
+      <router-outlet (activate)="setActiveRoute($event)"></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-4 p-3 border shadow">
+  <h1 class="display-4 mb-4">2. Type Challenge</h1>
+  
+  <!-- The fetched sentence from fakerJS -->
+  <div class="sentence">
+    <p class="fs-3">
+
+      <!-- Loop through each character in the sentence -->
+      <span *ngFor="let char of getSentenceArray(); let i = index"
+        [ngStyle]="{'color': isCorrect[i] ? 'green' : (isCorrect[i] === false ? 'red' : 'black')}">{{ char }}</span>
+    </p>
+  </div>
+  
+  <!-- Input for user to type the sentence -->
+  <div class="input-group mt-3 p-6 shadow-sm">
+    <input [(ngModel)]="userInput" (input)="checkInput()" class="form-control" placeholder="Type the sentence">
+  </div>
+
+  <!-- Display a completion message if the challenge is completed -->
+  <div *ngIf="isComplete" class="complete-text text-center m-2 p-3">
+    <button class="btn btn-outline-success btn-rounded shadow">
+      Right!
+    </button>
+  </div>
+  
+  
+</div>

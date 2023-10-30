@@ -1,0 +1,5 @@
+.list-group-item.active {
+    border-color: green;
+    font-weight: bold;
+  }
+  

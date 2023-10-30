@@ -1,0 +1,101 @@
+<div class="container api-table mt-4">
+  <h2 class="mb-4">Choose a Device to Display Data</h2>
+
+  <!-- Form for Device Selection --> 
+
+  <form [formGroup]="form" class="device-selection">
+    <div class="input-group">
+      <select class="form-select" formControlName="selectedOption">
+        <option value="" disabled>List of Installed Devices</option>
+        <option *ngFor="let option of deviceOptions" [value]="option">{{ option }}</option>
+      </select>
+      <button class="btn btn-dark" (click)="fetchBothData()">Fetch Device Data</button>
+    </div>
+  </form>
+
+ <!-- Display site data when available -->
+
+  <div *ngIf="siteData" class="api-data overflow-auto">
+    <div class="api-table">
+      <h2 class="mt-4">Device Address:</h2>
+      <table *ngIf="siteData" class="table table-striped">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+
+<!-- Display site information -->
+
+          <tr>
+            <td>Name</td>
+            <td>{{ siteData.name }}</td>
+          </tr>
+          <tr>
+            <td>Store Number</td>
+            <td>{{ siteData.storeNumber }}</td>
+          </tr>
+          <tr>
+            <td>Block</td>
+            <td>{{ siteData.block }}</td>
+          </tr>
+          <tr>
+            <td>Street</td>
+            <td>{{ siteData.street }}</td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td>{{ siteData.city }}</td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td>{{ siteData.state }}</td>
+          </tr>
+          <tr>
+            <td>Zip Code</td>
+            <td>{{ siteData.zipCode }}</td>
+          </tr>
+          <tr>
+            <td>Country</td>
+            <td>{{ siteData.country }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<!-- Display device data when available -->
+
+  <div *ngIf="deviceData" class="api-data overflow-auto">
+    <div class="api-table">
+      <h2>Device Version detail:</h2>
+      <table *ngIf="deviceData" class="table table-striped">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+
+<!-- Display device information -->
+
+          <tr>
+            <td>Firmware version</td>
+            <td>{{ deviceData.device.latestFirmwareVersion }}</td>
+          </tr>
+          <tr>
+            <td>Status Update</td>
+            <td>{{ deviceData.device.statusLastUpdated }}</td>
+          </tr>
+          <tr>
+            <td>Time Zone</td>
+            <td>{{ deviceData.settings.timeZone }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
