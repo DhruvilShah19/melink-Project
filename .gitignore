@@ -1,0 +1,43 @@
+# Node.js
+node_modules/
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# Compiled output
+/dist/
+/tmp/
+/out-tsc/
+
+# Log files
+logs/
+*.log
+
+# Angular config
+angular.json
+.angular-cache/
+
+# IDE and editor specific files
+.idea/
+.vscode/
+
+# Environment variables
+.env
+
+# Cache and runtime data
+*.cache
+*.data
+
+# Testing
+/coverage/
+/e2e/*.js
+/e2e/*.map
+
+# Docker
+/Dockerfile
+/docker-compose.yml
+
+# Thumbnails
+Thumbs.db
+
